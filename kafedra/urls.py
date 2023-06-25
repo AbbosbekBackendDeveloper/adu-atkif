@@ -1,0 +1,35 @@
+from django.urls import path
+from . import views
+
+
+urlpatterns = [
+    path('at-teachers/', views.AtTeachersView.as_view(), name='at_teachers'),
+    path('ki-teachers/', views.KiTeachersView.as_view(), name='ki_teachers'),
+    path('teacher-single/<slug:teacher>/', views.teachersdetailview, name="teacher_detail"),
+    path('teachers-search/', views.teacherssearchview, name="teachers_search"),
+    path('at-since/', views.AtSinceView.as_view(), name='at_since'),
+    path('ki-since/', views.KiSinceView.as_view(), name='ki_since'),
+    path('since-single/<slug:since>/', views.sincedetailview, name="since_detail"),
+    path('at-life/', views.AtLifesView.as_view(), name='at_life'),
+    path('ki-life/', views.KiLifesView.as_view(), name='ki_life'),
+    path('life-single/<slug:life>/', views.lifedetailview, name="life_detail"),
+    path('at-grant/', views.AtGrantView.as_view(), name='at_grant'),
+    path('ki-grant/', views.KiGrantView.as_view(), name='ki_grant'),
+    path('grant-single/<slug:grant>/', views.grantdetailview, name="grant_detail"),
+    path('at-international/', views.AtInternationalView.as_view(), name='at_international'),
+    path('ki-international/', views.KiInternationalView.as_view(), name='ki_international'),
+    path('international-single/<slug:international>/', views.internationaldetailview, name="international_detail"),
+    path('at-teacher-update/', views.AtTeachersUpdateView.as_view(), name='at_teacher_update'),
+    path('ki-teacher-update/', views.KiTeachersUpdateView.as_view(), name='ki_teacher_update'),
+    path('teacher-update-single/<slug:teacher_update>/', views.teachersupdatedetailview, name="teacher_update_detail"),
+    path('at-cultural/', views.AtCulturalView.as_view(), name='at_cultural'),
+    path('ki-cultural/', views.KiCulturalView.as_view(), name='ki_cultural'),
+    path('cultural-single/<slug:cultural>/', views.culturaldetailview, name="cultural_detail"),
+    path('since-search/', views.sincesearchview, name="since_search"),
+    path('life-search/', views.lifesearchview, name="life_search"),
+    path('cultural-search/', views.culturalsearchview, name="cultural_search"),
+    path('international-search/', views.internationalsearchview, name="international_search"),
+    path('grant-search/', views.grantsearchview, name="grant_search"),
+    path('teacher-update-search/', views.teacherupdatesearchview, name="teacher_update_search"),
+    # path('teachers-search/', views.teacherssearchview, name="teachers_search"),    
+]

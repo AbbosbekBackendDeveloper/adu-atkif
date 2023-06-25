@@ -1,0 +1,72 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center" style="background-image: url('');">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>Qidiruv natijalari</h2>
+              <!-- <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'news_list' %}">Barcha yangiliklar</a></li>
+            <li>Natijalar</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4 posts-list">
+          {% if query %}
+          {% for q in search %}
+          <div class="col-xl-4 col-md-6">
+            <article>
+
+              <div class="post-img">
+                {% if q.image %}
+                <img src="{{ q.image.url }}" alt="" class="img-fluid">
+                {% endif %}
+              </div>
+
+              <p class="post-category">{{ q.kafedra }}</p>
+
+              <h2 class="title">
+                <a href="{{ q.get_absolute_url }}">{{ q.fish }}</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <div class="post-meta">
+                  <p class="post-date">
+                    <time datetime="2022-01-01">{{ q.teacher_updated_time }}</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+          {% endfor %}
+          {% else %}
+            <h2 class="title">Nimadur xato ketdi<a href="{% url 'at_teacher_update' %}" class="text-color-danger uppercase"> ORTGA QAYTISH </a></h2>
+          {% endif %}
+        </div><!-- End blog posts list -->
+
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->
+
+{% endblock content %}
